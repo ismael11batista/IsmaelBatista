@@ -1,0 +1,789 @@
+/* Reset e Configurações Básicas */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  color: #333;
+  line-height: 1.6;
+  background-color: #f9f9f9;
+}
+
+/* Container */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Barra de Navegação */
+nav {
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+}
+
+.logo a {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5em;
+  font-weight: 700;
+  color: #0d47a1;
+  text-decoration: none;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  position: relative; /* Necessário para posicionar o ::after */
+  transition: color 0.3s ease;
+}
+
+/* Efeito de Underline usando ::after */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  display: block;
+  bottom: -2px;
+  left: 0;
+  background: #0d47a1; /* Cor do underline */
+  transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+  background: #ffd600; /* Cor do underline no hover */
+}
+
+.nav-links a:hover {
+  color: #0d47a1; /* Mudança de cor do texto no hover */
+}
+
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.hamburger span {
+  height: 3px;
+  width: 25px;
+  background: #333;
+  margin-bottom: 4px;
+  border-radius: 3px;
+}
+
+/* Responsividade do Menu */
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    right: 0;
+    top: 60px;
+    background: #fff;
+    flex-direction: column;
+    width: 200px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: none;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(to right, #0d47a1, #1976d2);
+  color: #fff;
+  padding: 100px 0 60px 0;
+  margin-top: 60px;
+}
+
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.hero-content {
+  flex: 1 1 500px;
+  padding: 20px;
+  animation: slideIn 1s ease-out;
+}
+
+.hero-content h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+}
+
+.hero-buttons .btn {
+  margin-right: 15px;
+}
+
+.hero-img {
+  flex: 1 1 300px;
+  text-align: center;
+}
+
+.hero-img img {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Botões */
+.btn {
+  display: inline-block;
+  padding: 12px 25px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.primary-btn {
+  background: #ffd600;
+  color: #0d47a1;
+}
+
+.primary-btn:hover {
+  background: #ffb300;
+  transform: translateY(-2px);
+}
+
+.secondary-btn {
+  background: transparent;
+  border: 2px solid #ffd600;
+  color: #ffd600;
+}
+
+.secondary-btn:hover {
+  background: #ffd600;
+  color: #0d47a1;
+  transform: translateY(-2px);
+}
+
+.view-cert {
+  background: #0d47a1;
+  color: #fff;
+  padding: 8px 15px;
+  border-radius: 20px;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.view-cert:hover {
+  background: #1976d2;
+}
+
+/* Seção Sobre */
+.about {
+  padding: 80px 0;
+  background-color: #fff;
+}
+
+.about h2 {
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.about h2::after {
+  content: "";
+  width: 60px;
+  height: 4px;
+  background: #ffd600;
+  display: block;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+.about-content {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  animation: slideIn 1s ease-out;
+}
+
+.about-content img {
+  flex: 1 1 300px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.about-text {
+  flex: 2 1 500px;
+  font-size: 1.1em;
+  line-height: 1.8;
+}
+
+/* Seção Habilidades */
+.skills {
+  padding: 80px 0;
+  background-color: #f1f1f1;
+}
+
+.skills h2 {
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.skills h2::after {
+  content: "";
+  width: 60px;
+  height: 4px;
+  background: #0d47a1;
+  display: block;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 30px;
+  animation: slideIn 1s ease-out;
+}
+
+.skill-item {
+  background: #fff;
+  padding: 30px 20px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.skill-item i {
+  font-size: 2.5em;
+  color: #0d47a1;
+  margin-bottom: 15px;
+}
+
+.skill-item h3 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.2em;
+  color: #333;
+}
+
+/* Seção Experiência */
+.experience {
+  padding: 80px 0;
+}
+
+.experience h2 {
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.experience h2::after {
+  content: "";
+  width: 60px;
+  height: 4px;
+  background: #ffd600;
+  display: block;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: auto;
+  animation: slideIn 1s ease-out;
+}
+
+.timeline::after {
+  content: "";
+  position: absolute;
+  width: 4px;
+  background: #ffd600;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -2px;
+}
+
+.timeline-item {
+  padding: 20px 40px;
+  position: relative;
+  background: #fff;
+  border-radius: 10px;
+  width: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.timeline-item:hover {
+  transform: scale(1.02);
+}
+
+.timeline-item::after {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: -13px;
+  background: #ffd600;
+  border: 4px solid #fff;
+  top: 20px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.timeline-item-right::after {
+  left: -13px;
+  right: auto;
+}
+
+.timeline-content h3 {
+  font-family: "Montserrat", sans-serif;
+  color: #0d47a1;
+  margin-bottom: 5px;
+}
+
+.timeline-content h4 {
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.timeline-content span {
+  font-size: 0.9em;
+  color: #777;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.timeline-content ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.timeline-content ul li {
+  margin-bottom: 8px;
+}
+
+/* Alternar lado dos itens no timeline */
+.timeline-item-left {
+  left: 0;
+}
+
+.timeline-item-right {
+  left: 50%;
+}
+
+@media screen and (max-width: 768px) {
+  .timeline-item,
+  .timeline-item-right {
+    left: 0;
+  }
+
+  .timeline::after {
+    left: 8px;
+  }
+
+  .timeline-item::after {
+    left: -13px;
+    right: auto;
+  }
+}
+
+/* Seção Educação */
+.education {
+  padding: 80px 0;
+  background-color: #fff;
+}
+
+.education h2 {
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.education h2::after {
+  content: "";
+  width: 60px;
+  height: 4px;
+  background: #0d47a1;
+  display: block;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+.education-item {
+  text-align: center;
+  margin-bottom: 30px;
+  animation: slideIn 1s ease-out;
+}
+
+.education-item h3 {
+  font-family: "Montserrat", sans-serif;
+  color: #0d47a1;
+  margin-bottom: 5px;
+}
+
+.education-item h4 {
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.education-item span {
+  font-size: 0.9em;
+  color: #777;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.education-item p {
+  font-size: 1em;
+  color: #333;
+}
+
+/* Seção Certificações */
+.certifications {
+  padding: 80px 0;
+  background-color: #f1f1f1;
+}
+
+.certifications h2 {
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.certifications h2::after {
+  content: "";
+  width: 60px;
+  height: 4px;
+  background: #ffd600;
+  display: block;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+.certifications-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  animation: slideIn 1s ease-out;
+}
+
+.cert-item {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cert-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.cert-item h4 {
+  font-family: "Montserrat", sans-serif;
+  color: #0d47a1;
+  margin-bottom: 10px;
+}
+
+.cert-item p {
+  font-size: 0.9em;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+/* Seção Depoimentos */
+.recommendations {
+  padding: 80px 0;
+  background-color: #fff;
+}
+
+.recommendations h2 {
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.recommendations h2::after {
+  content: "";
+  width: 60px;
+  height: 4px;
+  background: #0d47a1;
+  display: block;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+.testimonials-slider {
+  display: flex;
+  overflow: hidden;
+  position: relative;
+}
+
+.testimonial-slide {
+  min-width: 100%;
+  transition: transform 0.5s ease;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.testimonial-slide p {
+  background: #f1f1f1;
+  padding: 30px;
+  border-left: 5px solid #ffd600;
+  border-radius: 5px;
+  font-size: 1.1em;
+  position: relative;
+}
+
+.testimonial-slide p::before {
+  content: '"';
+  font-size: 3em;
+  color: #ffd600;
+  position: absolute;
+  top: -20px;
+  left: -10px;
+}
+
+/* Seção Contato */
+.contact {
+  padding: 80px 0;
+  background-color: #f1f1f1;
+}
+
+.contact h2 {
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.contact h2::after {
+  content: "";
+  width: 60px;
+  height: 4px;
+  background: #0d47a1;
+  display: block;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+#contact-form {
+  max-width: 700px;
+  margin: auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  animation: slideIn 1s ease-out;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  font-size: 1em;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #0d47a1;
+}
+
+.submit-btn {
+  background: #0d47a1;
+  color: #fff;
+  padding: 15px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.submit-btn:hover {
+  background: #1976d2;
+  transform: translateY(-2px);
+}
+
+#form-message {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 1.1em;
+}
+
+#form-message.success {
+  color: green;
+}
+
+#form-message.error {
+  color: red;
+}
+
+/* Footer */
+footer {
+  background: #0d47a1;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.social-links {
+  margin-bottom: 10px;
+}
+
+.social-links a {
+  color: #fff;
+  margin: 0 10px;
+  font-size: 1.5em;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #ffd600;
+}
+
+footer p {
+  font-size: 0.9em;
+}
+
+/* Botão de Scroll to Top */
+#scrollTopBtn {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  background: #ffd600;
+  color: #0d47a1;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 50%;
+  font-size: 1.2em;
+  cursor: pointer;
+  display: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  transition: background 0.3s ease;
+}
+
+#scrollTopBtn:hover {
+  background: #ffb300;
+}
+
+/* Animações */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-content,
+.about-content,
+.skills-grid,
+.timeline,
+.education-item,
+.certifications-grid,
+.testimonials-slider,
+#contact-form {
+  animation: slideIn 1s ease-out;
+}
+
+/* Responsividade Adicional */
+@media (max-width: 768px) {
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-img img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .about-content {
+    flex-direction: column;
+  }
+}
